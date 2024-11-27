@@ -18,7 +18,7 @@ public class Main {
 			
 		}
 		
-		sc.close();
+		sc.close();  //sc 객체 close , 노란 경고를 막는다
 
 		System.out.println("== 프로그램 종료 ==");
 	}
