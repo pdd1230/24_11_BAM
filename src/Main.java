@@ -6,9 +6,8 @@ public class Main {
 		System.out.println("== 프로그램 시작 ==");
 		
 		Scanner sc = new Scanner(System.in);
-		String title;
-		String body;
-		int num= 0;
+
+		int id= 1;
 
 		while (true) {
 
@@ -24,18 +23,17 @@ public class Main {
 				break;
 			} else if (cmd.equals("article write")) {
 				System.out.printf("제목 :");
-				title = sc.nextLine().trim();
+				String title = sc.nextLine().trim();
 				System.out.printf("내용 : ");
-				title = sc.nextLine().trim();
-				num += 1;
-				System.out.printf("%d번 글이 생성되었습니다.\n",num);
+				String body = sc.nextLine().trim();
+				System.out.printf("%d번 글이 생성되었습니다.\n",id);
+				id++;
 
 			} else if (cmd.equals("article list")) {
 				System.out.println("게시글이 없습니다");
 			} else {
 				System.out.println("존재하지 않는 명령어 입니다");
 			}
-			
 			
 		}
 		
@@ -44,3 +42,8 @@ public class Main {
 		System.out.println("== 프로그램 종료 ==");
 	}
 }
+
+
+
+
+
