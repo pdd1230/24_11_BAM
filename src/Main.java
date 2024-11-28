@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -7,6 +9,8 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 
+		List<Article> articles = new ArrayList<>();
+		
 		int id= 1;
 
 		while (true) {
@@ -26,11 +30,31 @@ public class Main {
 				String title = sc.nextLine().trim();
 				System.out.printf("내용 : ");
 				String body = sc.nextLine().trim();
+				
+				Article article = new Article();
+				article.id = id;
+				article.title = title;
+				article.body = body;
+				
+				articles.add(article);
+				
 				System.out.printf("%d번 글이 생성되었습니다.\n",id);
 				id++;
 
 			} else if (cmd.equals("article list")) {
 				System.out.println("게시글이 없습니다");
+			} else if (cmd.equals("test")) {
+				for (int i = 0; i < articles.size(); i++) {
+					// 아래 주석과 동일한 내용입니다
+					Article article =articles.get(i);
+					System.out.println(article.id);
+					System.out.println(article.title);
+					System.out.println(article.body);
+					
+//					System.out.println(articles.get(i).id);
+//					System.out.println(articles.get(i).title);
+//					System.out.println(articles.get(i).body);
+				}
 			} else {
 				System.out.println("존재하지 않는 명령어 입니다");
 			}
@@ -42,6 +66,13 @@ public class Main {
 		System.out.println("== 프로그램 종료 ==");
 	}
 }
+class Article {
+	int id;
+	String title;
+	String body;
+	
+}
+
 
 
 
