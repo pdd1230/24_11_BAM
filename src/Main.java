@@ -31,30 +31,24 @@ public class Main {
 				System.out.printf("내용 : ");
 				String body = sc.nextLine().trim();
 				
-				Article article = new Article();
-				article.id = id;
-				article.title = title;
-				article.body = body;
+				// 생성자를 통해서 최적화 진행
+
+//				article.id = id;
+//				article.title = title;
+//				article.body = body;
 				
-				articles.add(article);
+	// 아래 2문장을 최적화 하면... (선택은 개발자의 선택임, 이해하기 쉬운것)
+//				Article article = new Article(id, title, body);
+//				articles.add(article);
+				
+				// 아래1번과 2번을 1줄로 최적화가 가능함
+				articles.add(new Article(id, title, body));
 				
 				System.out.printf("%d번 글이 생성되었습니다.\n",id);
 				id++;
 
 			} else if (cmd.equals("article list")) {
 				System.out.println("게시글이 없습니다");
-			} else if (cmd.equals("test")) {
-				for (int i = 0; i < articles.size(); i++) {
-					// 아래 주석과 동일한 내용입니다
-					Article article =articles.get(i);
-					System.out.println(article.id);
-					System.out.println(article.title);
-					System.out.println(article.body);
-					
-//					System.out.println(articles.get(i).id);
-//					System.out.println(articles.get(i).title);
-//					System.out.println(articles.get(i).body);
-				}
 			} else {
 				System.out.println("존재하지 않는 명령어 입니다");
 			}
@@ -71,6 +65,12 @@ class Article {
 	String title;
 	String body;
 	
+	// 생성자를 통해서 최적화
+	Article(int id, String title, String body) {
+		this.id = id;
+		this.title = title;
+		this.body = body;
+	}
 }
 
 
